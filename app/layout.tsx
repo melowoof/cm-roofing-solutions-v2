@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-// import { NavbarLarge, NavbarSmall } from "./ui/navbar";
+import { NavbarLarge, NavbarSmall } from "./ui/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,8 +28,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased lg:px-20 `}
       >
-        {/* <NavbarLarge />
-        <NavbarSmall /> */}
+        <div className="bg-inherit hidden md:block">
+          <NavbarLarge />
+        </div>
+        <div className="block md:hidden">
+          <NavbarSmall />
+        </div>
         {children}
       </body>
     </html>
